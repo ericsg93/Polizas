@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Polizas.API.Repositories
 {
-    interface IPolizaRepository
+    public interface IPolizaRepository
     {
         void Add<T>(T entity) where T : class;
         void Delete<T>(T entity) where T : class;

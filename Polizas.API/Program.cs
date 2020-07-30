@@ -29,6 +29,7 @@ namespace Polizas.API
                     var userManager = services.GetRequiredService<UserManager<User>>();
                     context.Database.Migrate();
                     Seed.SeedUsers(userManager);
+                    Seed.SeedPolizas(context);
                 }
                 catch (Exception ex)
                 {

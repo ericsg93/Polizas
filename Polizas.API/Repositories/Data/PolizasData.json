@@ -1,0 +1,26 @@
+[
+  {
+    "Nombre": "Poliza por Robo",
+    "Descripcion": "Poliza por perdida al telefono de Erick Solano",
+    "Cobertura": "85",
+    "Vigencia": "2020-07-29",
+    "PeriodoMeses": "7",
+    "Precio": "200000",
+    "TipoRiesgo": "medio",
+    "Status": true,
+    "Created": "2020/07/29",
+    "UserId":  "1"
+  },
+  {
+    "Nombre": "Poliza por Incendio a Marta",
+    "Descripcion": "Poliza por incendio de vehiculo de Marta ",
+    "Cobertura": "40",
+    "Vigencia": "2020-07-29",
+    "PeriodoMeses": "5",
+    "Precio": "500000",
+    "TipoRiesgo": "alto",
+    "Status": true,
+    "Created": "2020/07/29",
+    "UserId": "4"
+  }
+]

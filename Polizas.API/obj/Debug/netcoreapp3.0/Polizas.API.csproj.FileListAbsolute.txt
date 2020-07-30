@@ -191,7 +191,6 @@ C:\Users\erick\source\repos\Polizas.API\obj\Debug\netcoreapp3.0\Polizas.API.MvcA
 C:\Users\erick\source\repos\Polizas\Polizas.API\bin\Debug\netcoreapp3.0\appsettings.Development.json
 C:\Users\erick\source\repos\Polizas\Polizas.API\bin\Debug\netcoreapp3.0\appsettings.json
 C:\Users\erick\source\repos\Polizas\Polizas.API\bin\Debug\netcoreapp3.0\Properties\launchSettings.json
-C:\Users\erick\source\repos\Polizas\Polizas.API\bin\Debug\netcoreapp3.0\Repositories\UsersData.json
 C:\Users\erick\source\repos\Polizas\Polizas.API\bin\Debug\netcoreapp3.0\Polizas.API.exe
 C:\Users\erick\source\repos\Polizas\Polizas.API\bin\Debug\netcoreapp3.0\Polizas.API.deps.json
 C:\Users\erick\source\repos\Polizas\Polizas.API\bin\Debug\netcoreapp3.0\Polizas.API.runtimeconfig.json
@@ -382,3 +381,5 @@ C:\Users\erick\source\repos\Polizas\Polizas.API\obj\Debug\netcoreapp3.0\Polizas.
 C:\Users\erick\source\repos\Polizas\Polizas.API\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\erick\source\repos\Polizas\Polizas.API\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\erick\source\repos\Polizas\Polizas.API\bin\Debug\netcoreapp3.0\Newtonsoft.Json.Bson.dll
+C:\Users\erick\source\repos\Polizas\Polizas.API\bin\Debug\netcoreapp3.0\Repositories\Data\PolizasData.json
+C:\Users\erick\source\repos\Polizas\Polizas.API\bin\Debug\netcoreapp3.0\Repositories\Data\UsersData.json

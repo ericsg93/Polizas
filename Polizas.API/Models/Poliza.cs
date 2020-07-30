@@ -14,11 +14,19 @@ namespace Polizas.API.Models
         public DateTime Vigencia { get; set; }
         public int PeriodoMeses { get; set; }
         public float Precio { get; set; }
-        public int TipoRiesgo { get; set; }
+        public TipoRiesgo TipoRiesgo { get; set; }
         public bool Status { get; set; }
         public DateTime Created { get; set; }
         public User User { get; set; }
         public int UserId { get; set; }
 
+    }
+
+    public enum TipoRiesgo
+    {
+        bajo,
+        medio,
+        medio_alto,
+        alto
     }
 }

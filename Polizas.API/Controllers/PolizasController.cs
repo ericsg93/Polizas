@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Polizas.API;
 using Polizas.API.Models;
+using Polizas.API.Repositories;
 
 namespace Polizas.API.Controllers
 {
@@ -14,97 +15,99 @@ namespace Polizas.API.Controllers
     [ApiController]
     public class PolizasController : ControllerBase
     {
-        private readonly DataContext _context;
+        private readonly IPolizaRepository _repo;
 
-        public PolizasController(DataContext context)
+        public PolizasController(IPolizaRepository repo)
         {
-            _context = context;
+            _repo = repo;
         }
 
         // GET: api/Polizas
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Poliza>>> GetPolizas()
+        public async Task<IActionResult> GetPolizas()
         {
-            return await _context.Polizas.ToListAsync();
+            var users = await _repo.GetPolizas();
+
+            return Ok(users);
         }
 
         // GET: api/Polizas/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Poliza>> GetPoliza(int id)
+        public async Task<IActionResult> GetPoliza(int id)
         {
-            var poliza = await _context.Polizas.FindAsync(id);
+            var poliza = await _repo.GetPoliza(id);
 
             if (poliza == null)
             {
                 return NotFound();
             }
 
-            return poliza;
+            return Ok(poliza);
         }
 
         // PUT: api/Polizas/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutPoliza(int id, Poliza poliza)
-        {
-            if (id != poliza.Id)
-            {
-                return BadRequest();
-            }
+        //[HttpPut("{id}")]
+        //public async Task<IActionResult> PutPoliza(int id, Poliza poliza)
+        //{
+        //    if (id != poliza.Id)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            _context.Entry(poliza).State = EntityState.Modified;
+        //    _context.Entry(poliza).State = EntityState.Modified;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PolizaExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        await _context.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!PolizaExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return NoContent();
-        }
+        //    return NoContent();
+        //}
 
         // POST: api/Polizas
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
-        [HttpPost]
-        public async Task<ActionResult<Poliza>> PostPoliza(Poliza poliza)
-        {
-            _context.Polizas.Add(poliza);
-            await _context.SaveChangesAsync();
+        //[HttpPost]
+        //public async Task<ActionResult<Poliza>> PostPoliza(Poliza poliza)
+        //{
+        //    _context.Polizas.Add(poliza);
+        //    await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPoliza", new { id = poliza.Id }, poliza);
-        }
+        //    return CreatedAtAction("GetPoliza", new { id = poliza.Id }, poliza);
+        //}
 
-        // DELETE: api/Polizas/5
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<Poliza>> DeletePoliza(int id)
-        {
-            var poliza = await _context.Polizas.FindAsync(id);
-            if (poliza == null)
-            {
-                return NotFound();
-            }
+        //// DELETE: api/Polizas/5
+        //[HttpDelete("{id}")]
+        //public async Task<ActionResult<Poliza>> DeletePoliza(int id)
+        //{
+        //    var poliza = await _context.Polizas.FindAsync(id);
+        //    if (poliza == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            _context.Polizas.Remove(poliza);
-            await _context.SaveChangesAsync();
+        //    _context.Polizas.Remove(poliza);
+        //    await _context.SaveChangesAsync();
 
-            return poliza;
-        }
+        //    return poliza;
+        //}
 
-        private bool PolizaExists(int id)
-        {
-            return _context.Polizas.Any(e => e.Id == id);
-        }
+        //private bool PolizaExists(int id)
+        //{
+        //    return _context.Polizas.Any(e => e.Id == id);
+        //}
     }
 }
