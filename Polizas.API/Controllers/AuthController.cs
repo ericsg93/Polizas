@@ -64,7 +64,7 @@ namespace Polizas.API.Controllers
                 });
             }
 
-            return Ok(user);
+            return NotFound();
 
         }
         private  string GenerateJwtToken(User user)

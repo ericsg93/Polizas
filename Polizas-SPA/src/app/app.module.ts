@@ -1,3 +1,4 @@
+import { AuthGuard } from './_guards/auth.guard';
 import { AlertifyService } from './_services/alertify.service';
 import { BrowserModule, HammerGestureConfig } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -16,9 +17,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { TabsModule } from 'ngx-bootstrap/tabs';
-//import { appRoutes } from './routes';
+import { appRoutes } from './routes';
 import { JwtModule } from '@auth0/angular-jwt';
 import { FileUploadModule } from 'ng2-file-upload';
+import { HomeComponent } from './home/home.component';
+import { PolizasComponent } from './polizas/polizas.component';
 
 export function tokenGetter(): string {
   return localStorage.getItem('token');
@@ -32,7 +35,7 @@ export class CustomHammerConfig extends HammerGestureConfig {
 }
 
 @NgModule({
-  declarations: [AppComponent, NavComponent],
+  declarations: [AppComponent, NavComponent, HomeComponent, PolizasComponent],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
@@ -45,6 +48,7 @@ export class CustomHammerConfig extends HammerGestureConfig {
     BsDropdownModule.forRoot(),
     BsDatepickerModule.forRoot(),
     PaginationModule.forRoot(),
+    RouterModule.forRoot(appRoutes),
     ButtonsModule.forRoot(),
     NgxGalleryModule,
     FileUploadModule,
@@ -57,6 +61,6 @@ export class CustomHammerConfig extends HammerGestureConfig {
     }),
   ],
   bootstrap: [AppComponent],
-  providers: [AuthService, AlertifyService],
+  providers: [AuthService, AlertifyService, AuthGuard],
 })
 export class AppModule {}
