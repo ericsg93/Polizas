@@ -1,0 +1,38 @@
+[
+  {
+    "Cedula": "115520693",
+    "UserName": "Erick",
+    "Nombre": "Erick",
+    "Apellido": "Solano",
+    "Fecha_Nacimiento": "1993-01-11",
+    "Password": "password"
+
+  },
+  {
+    "Cedula": "115533455",
+    "UserName": "Jean",
+    "Nombre": "Jean",
+    "Apellido": "Simmons",
+    "Fecha_Nacimiento": "1951-07-25",
+    "Password": "password"
+
+  },
+  {
+    "Cedula": "325533455",
+    "UserName": "Andrey",
+    "Nombre": "Andrey",
+    "Apellido": "Granados",
+    "Fecha_Nacimiento": "1998-01-10",
+    "Password": "password"
+
+  },
+  {
+    "Cedula": "565533455",
+    "UserName": "Marta",
+    "Nombre": "Marta",
+    "Apellido": "Aguilar",
+    "Fecha_Nacimiento": "1997-05-24",
+    "Password": "password"
+
+  }
+]
