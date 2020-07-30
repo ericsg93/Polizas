@@ -9,7 +9,7 @@
     "TipoRiesgo": "medio",
     "Status": true,
     "Created": "2020/07/29",
-    "UserId":  "1"
+    "UserId": "1"
   },
   {
     "Nombre": "Poliza por Incendio a Marta",
@@ -22,5 +22,17 @@
     "Status": true,
     "Created": "2020/07/29",
     "UserId": "4"
+  },
+  {
+    "Nombre": "Poliza por Perdida Computadora",
+    "Descripcion": "Poliza por perdida de computadora de Erick Solano",
+    "Cobertura": "20",
+    "Vigencia": "2020-07-29",
+    "PeriodoMeses": "3",
+    "Precio": "400000",
+    "TipoRiesgo": "bajo",
+    "Status": true,
+    "Created": "2020/07/29",
+    "UserId": "1"
   }
 ]

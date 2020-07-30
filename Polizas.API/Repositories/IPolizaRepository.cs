@@ -13,7 +13,7 @@ namespace Polizas.API.Repositories
         Task<bool> SaveAll();
         Task<Poliza> GetPoliza(int id);
         Task<IEnumerable<Poliza>> GetPolizas();
-
+        Task<bool> PutPoliza(int id, Poliza poliza);
 
     }
 }

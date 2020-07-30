@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using System.Data.Entity.Core.Mapping;
 
 namespace Polizas.API.Repositories
 {
@@ -36,6 +37,14 @@ namespace Polizas.API.Repositories
         public async Task<IEnumerable<Poliza>> GetPolizas()
         {
             return await _context.Polizas.Include(u => u.User).ToListAsync();
+        }
+
+        public async Task<bool> PutPoliza(int id, Poliza poliza)
+        {
+
+            _context.Entry(poliza).State = EntityState.Modified;
+
+            return await _context.SaveChangesAsync() > 0;
         }
 
         public async Task<bool> SaveAll()

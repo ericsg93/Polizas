@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Polizas.API.Models
+namespace Polizas.API.Dtos
 {
-    public class Poliza
+    public class PolizaToReturn
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
@@ -17,8 +17,12 @@ namespace Polizas.API.Models
         public TipoRiesgo TipoRiesgo { get; set; }
         public bool Status { get; set; }
         public DateTime Created { get; set; }
-        public User User { get; set; }
-        public int UserId { get; set; }
+
+
+        public PolizaToReturn()
+        {
+            Created = DateTime.Now;
+        }
 
     }
 
@@ -30,5 +34,5 @@ namespace Polizas.API.Models
         alto
     }
 
-
+    
 }
