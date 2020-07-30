@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Polizas-SPA"
+    }
+  },
+  "defaultProject": "Polizas-SPA",
+  "cli": {
+    "analytics": false
+  }
 }

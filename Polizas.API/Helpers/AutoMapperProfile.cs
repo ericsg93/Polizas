@@ -12,9 +12,12 @@ namespace Polizas.API.Helpers
     {
         public AutoMapperProfile()
         {
-           
+
             CreateMap<Poliza, PolizaToReturn>();
             CreateMap<PolizaForUpdate, Poliza>();
+            CreateMap<User, UserForListDto>();
+
+
         }
 
     }
