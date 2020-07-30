@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Polizas.API.Models;
+using Polizas.API.Repositories;
 
 namespace Polizas.API
 {
@@ -78,6 +79,8 @@ namespace Polizas.API
                 opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             });
 
+            services.AddCors();
+            services.AddScoped<IPolizaRepository, PolizaRepository>();
 
         }
 
@@ -92,6 +95,8 @@ namespace Polizas.API
             //app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseAuthentication();
             app.UseAuthorization();
