@@ -1,3 +1,6 @@
+import { PolizaListResolver } from './_resolvers/poliza-list.resolver';
+import { PolizaEditResolver } from './_resolvers/poliza-edit.resolver';
+import { PolizaService } from './_services/poliza.service';
 import { AuthGuard } from './_guards/auth.guard';
 import { AlertifyService } from './_services/alertify.service';
 import { BrowserModule, HammerGestureConfig } from '@angular/platform-browser';
@@ -21,7 +24,9 @@ import { appRoutes } from './routes';
 import { JwtModule } from '@auth0/angular-jwt';
 import { FileUploadModule } from 'ng2-file-upload';
 import { HomeComponent } from './home/home.component';
-import { PolizasComponent } from './polizas/polizas.component';
+import { PolizasListComponent } from './polizas/polizas-list/polizas-list.component';
+import { PolizasCreateComponent } from './polizas/polizas-create/polizas-create.component';
+import { PolizaEditComponent } from './polizas/poliza-edit/poliza-edit.component';
 
 export function tokenGetter(): string {
   return localStorage.getItem('token');
@@ -35,7 +40,14 @@ export class CustomHammerConfig extends HammerGestureConfig {
 }
 
 @NgModule({
-  declarations: [AppComponent, NavComponent, HomeComponent, PolizasComponent],
+  declarations: [
+    AppComponent,
+    NavComponent,
+    HomeComponent,
+    PolizasListComponent,
+    PolizasCreateComponent,
+    PolizaEditComponent,
+  ],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
@@ -61,6 +73,13 @@ export class CustomHammerConfig extends HammerGestureConfig {
     }),
   ],
   bootstrap: [AppComponent],
-  providers: [AuthService, AlertifyService, AuthGuard],
+  providers: [
+    AuthService,
+    AlertifyService,
+    AuthGuard,
+    PolizaService,
+    PolizaListResolver,
+    PolizaEditResolver,
+  ],
 })
 export class AppModule {}

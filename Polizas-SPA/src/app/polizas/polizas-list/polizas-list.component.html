@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row mb-3 mt-3">
+    <h2>Polizas Creadas</h2>
+    <a class="btn btn-success ml-4" [routerLink]="['/polizas-create']">
+      Crear Poliza
+    </a>
+  </div>
+
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Descripción</th>
+          <th scope="col">Cobertura</th>
+          <th scope="col">Vigencia</th>
+          <th scope="col">Periodo (Meses)</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Tipo Riesgo</th>
+          <th scope="col">Status</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let poliza of polizas; index as i">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ poliza.nombre }}</td>
+          <td>{{ poliza.descripcion }}</td>
+          <td>{{ poliza.cobertura }}</td>
+          <td>{{ poliza.vigencia }}</td>
+          <td>{{ poliza.periodoMeses }}</td>
+          <td>{{ poliza.precio }}</td>
+          <td>{{ poliza.tipoRiesgo }}</td>
+          <td>{{ poliza.status }}</td>
+          <td>
+            <a [routerLink]="['/poliza/', poliza.id]"
+              ><i class="fa fa-eye mr-2"></i
+            ></a>
+            <a [routerLink]="['/poliza-edit/', poliza.id]">
+              <i class="fa fa-edit mr-2"></i
+            ></a>
+            <a (click)="deletePoliza(poliza.id)">
+              <i class="fa fa-trash"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div></div>
+</div>

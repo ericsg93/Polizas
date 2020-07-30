@@ -87,6 +87,7 @@ namespace Polizas.API
             services.AddCors();
             services.AddAutoMapper(typeof(PolizaRepository).Assembly);
             services.AddScoped<IPolizaRepository, PolizaRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
             {

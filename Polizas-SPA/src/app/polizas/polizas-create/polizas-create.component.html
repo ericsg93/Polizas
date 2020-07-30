@@ -1,0 +1,204 @@
+<div class="container">
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
+    <h2 class="text-center text-primary mt-2 mb-2">Registro de Poliza</h2>
+    <hr />
+
+    <!-- Nombre -->
+    <div class="form-group">
+      <input
+        type="text"
+        [ngClass]="{
+          'is-invalid': isInvalid('nombre')
+        }"
+        class="form-control"
+        formControlName="nombre"
+        name="nombre"
+        placeholder="Nombre Poliza"
+      />
+      <div class="invalid-feedback">Nombre es requerido</div>
+    </div>
+
+    <!-- Descripcion -->
+    <div class="form-group">
+      <input
+        [ngClass]="{
+          'is-invalid':
+            registerForm.get('descripcion').errors &&
+            registerForm.get('descripcion').touched
+        }"
+        class="form-control"
+        placeholder="Descripcion"
+        formControlName="descripcion"
+      />
+      <div
+        class="invalid-feedback"
+        *ngIf="
+          registerForm.get('descripcion').touched &&
+          registerForm.get('descripcion').hasError('required')
+        "
+      >
+        Descripcion es requerida
+      </div>
+    </div>
+
+    <!-- Cobertura -->
+    <div class="form-group">
+      <input
+        [ngClass]="{
+          'is-invalid':
+            registerForm.get('cobertura').errors &&
+            registerForm.get('cobertura').touched
+        }"
+        class="form-control"
+        placeholder="Cobertura"
+        formControlName="cobertura"
+        type="number"
+      />
+      <div
+        class="invalid-feedback"
+        *ngIf="
+          registerForm.get('cobertura').touched &&
+          registerForm.get('cobertura').hasError('required')
+        "
+      >
+        Porcentaje de cobertura es requerido
+      </div>
+    </div>
+
+    <!-- Vigencia -->
+    <div class="form-group">
+      <input
+        [ngClass]="{
+          'is-invalid':
+            registerForm.get('vigencia').errors &&
+            registerForm.get('vigencia').touched
+        }"
+        class="form-control"
+        placeholder="Vigencia desde:"
+        formControlName="vigencia"
+        type="text"
+        bsDatepicker
+        [bsConfig]="bsConfig"
+      />
+      <div
+        class="invalid-feedback"
+        *ngIf="
+          registerForm.get('vigencia').touched &&
+          registerForm.get('vigencia').hasError('required')
+        "
+      >
+        Vigencia es requerida
+      </div>
+    </div>
+
+    <!-- Periodo Meses -->
+    <div class="form-group">
+      <input
+        [ngClass]="{
+          'is-invalid':
+            registerForm.get('periodoMeses').errors &&
+            registerForm.get('periodoMeses').touched
+        }"
+        class="form-control"
+        placeholder="Periodo meses"
+        formControlName="periodoMeses"
+        type="number"
+      />
+      <div
+        class="invalid-feedback"
+        *ngIf="
+          registerForm.get('periodoMeses').touched &&
+          registerForm.get('periodoMeses').hasError('required')
+        "
+      >
+        Periodo de meses es requerido
+      </div>
+    </div>
+
+    <!-- Precio -->
+    <div class="form-group">
+      <input
+        [ngClass]="{
+          'is-invalid':
+            registerForm.get('precio').errors &&
+            registerForm.get('precio').touched
+        }"
+        class="form-control"
+        placeholder="Precio"
+        type="number"
+        formControlName="precio"
+      />
+      <div
+        class="invalid-feedback"
+        *ngIf="
+          registerForm.get('precio').touched &&
+          registerForm.get('precio').hasError('required')
+        "
+      >
+        Precio es requerido
+      </div>
+    </div>
+    <!-- Tipo Riesgo -->
+    <div class="form-group">
+      <label class="control-label" style="margin-right: 10px;"
+        >Tipo de riesgo:
+      </label>
+      <label class="radio-inline">
+        <input
+          class="mr-3"
+          type="radio"
+          value="0"
+          formControlName="tipoRiesgo"
+        />Bajo
+      </label>
+      <label class="radio-inline ml-3">
+        <input
+          class="mr-3"
+          type="radio"
+          value="1"
+          formControlName="tipoRiesgo"
+        />Medio
+      </label>
+      <label class="radio-inline ml-3">
+        <input
+          class="mr-3"
+          type="radio"
+          value="2"
+          formControlName="tipoRiesgo"
+        />Medio Alto
+      </label>
+      <label class="radio-inline ml-3">
+        <input
+          class="mr-3"
+          type="radio"
+          value="3"
+          formControlName="tipoRiesgo"
+        />Alto
+      </label>
+    </div>
+
+    <!-- Usuario -->
+    <div class="form-group">
+      Asociar a cliente:
+      <select formControlName="userId">
+        <option *ngFor="let user of users" [value]="user.id">
+          {{ user.cedula }}. {{ user.nombre }}&nbsp;{{ user.apellido }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group text-center">
+      <button
+        class="btn btn-success"
+        [disabled]="!registerForm.valid"
+        type="submit"
+      >
+        Register
+      </button>
+    </div>
+  </form>
+
+  <!-- <p>Form Value: {{ registerForm.value | json }}</p>
+        <p>Form status: {{ registerForm.status | json }}</p>
+         -->
+</div>

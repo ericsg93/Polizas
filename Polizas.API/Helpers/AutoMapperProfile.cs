@@ -16,6 +16,7 @@ namespace Polizas.API.Helpers
             CreateMap<Poliza, PolizaToReturn>();
             CreateMap<PolizaForUpdate, Poliza>();
             CreateMap<User, UserForListDto>();
+            CreateMap<User, UsertoReturn>();
 
 
         }

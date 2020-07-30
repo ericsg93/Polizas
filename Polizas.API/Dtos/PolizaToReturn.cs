@@ -17,11 +17,12 @@ namespace Polizas.API.Dtos
         public TipoRiesgo TipoRiesgo { get; set; }
         public bool Status { get; set; }
         public DateTime Created { get; set; }
-
+        public int UserId { get; set; }
 
         public PolizaToReturn()
         {
             Created = DateTime.Now;
+            Status = true;
         }
 
     }
