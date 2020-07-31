@@ -14,7 +14,7 @@ using Polizas.API.Repositories;
 
 namespace Polizas.API.Controllers
 {
-    [AllowAnonymous]
+   
     [Route("api/[controller]")]
     [ApiController]
     public class PolizasController : ControllerBase
@@ -37,9 +37,10 @@ namespace Polizas.API.Controllers
             var polizatoReturn = _mapper.Map<IEnumerable<PolizaToReturn>>(polizas);
             
             return Ok(polizatoReturn);
-        } 
+        }
 
         // GET: api/Polizas/5
+       
         [HttpGet("{id}")]
         public async Task<IActionResult> GetPoliza(int id)
         {
@@ -59,6 +60,7 @@ namespace Polizas.API.Controllers
         // PUT: api/Polizas/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
+        [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPoliza(int id, PolizaForUpdate polizaForUpdate)
         {
@@ -78,6 +80,7 @@ namespace Polizas.API.Controllers
         // POST: api/Polizas
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> PostPoliza(Poliza poliza)
         {
@@ -93,6 +96,7 @@ namespace Polizas.API.Controllers
         }
 
         // DELETE: api/Polizas/5
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePoliza(int id)
         {

@@ -25,7 +25,7 @@ namespace Polizas.API.Repositories
 
         public async Task<IEnumerable<User>> GetUsers()
         {
-            return await _dataContext.Users.ToListAsync();
+            return await _dataContext.Users.Where(u => u.UserName != "Admin").ToListAsync();
         }
     }
 }

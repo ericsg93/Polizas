@@ -15,6 +15,11 @@ export class AuthService {
   decodedToken: any;
   currentUser: User;
 
+  public welcomeUser: BehaviorSubject<string> = new BehaviorSubject<string>(
+    null
+  );
+  public role: BehaviorSubject<string> = new BehaviorSubject<string>(null);
+
   constructor(private http: HttpClient) {}
 
   login(model: any) {
@@ -22,9 +27,10 @@ export class AuthService {
       map((response: any) => {
         const user = response;
         if (user) {
-          localStorage.setItem('token', user.token);
+          localStorage.setItem('token', user.token.result);
           localStorage.setItem('user', JSON.stringify(user.user));
-          this.decodedToken = this.jwtHelper.decodeToken(user.token);
+          this.decodedToken = this.jwtHelper.decodeToken(user.token.result);
+          this.welcomeUser.next(this.decodedToken?.unique_name);
           this.currentUser = user.user;
         }
       })

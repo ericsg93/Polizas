@@ -52,14 +52,14 @@ namespace Polizas.API.Controllers
             if (result.Succeeded)
             {
                 //var appUser = await _userManager.Users.Include(p => p.Polizas)
-                   // .FirstOrDefaultAsync(u => u.NormalizedUserName == userForLoginDto.UserName.ToUpper());
+                   //.FirstOrDefaultAsync(u => u.NormalizedUserName == userForLoginDto.UserName.ToUpper());
 
 
                 var userToReturn = _mapper.Map<UserForListDto>(user);
 
                 return Ok(new
                 {
-                    token = GenerateJwtToken(user),//.Result,
+                    token = GenerateJwtTokenAsync(user),//.Result,
                     user = userToReturn
                 });
             }
@@ -67,7 +67,7 @@ namespace Polizas.API.Controllers
             return NotFound();
 
         }
-        private  string GenerateJwtToken(User user)
+        private async Task<string> GenerateJwtTokenAsync(User user)
         {
             var claims = new List<Claim>
             {
@@ -75,12 +75,12 @@ namespace Polizas.API.Controllers
                 new Claim(ClaimTypes.Name, user.UserName)
             };
 
-            //var roles = await _userManager.GetRolesAsync(user);
+            var roles = await _userManager.GetRolesAsync(user);
 
-            //foreach (var role in roles)
-            //{
-            //    claims.Add(new Claim(ClaimTypes.Role, role));
-            //}
+            foreach (var role in roles)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role));
+            }
 
             var key = new SymmetricSecurityKey(Encoding.UTF8
                 .GetBytes(_config.GetSection("AppSettings:Token").Value));

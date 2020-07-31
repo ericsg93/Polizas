@@ -1,3 +1,4 @@
+import { AuthService } from './../../_services/authservice.service';
 import { PolizaService } from './../../_services/poliza.service';
 import { Poliza } from './../../_models/poliza';
 import { Component, OnInit } from '@angular/core';
@@ -14,6 +15,7 @@ export class PolizasListComponent implements OnInit {
 
   constructor(
     private polizaService: PolizaService,
+    public authService: AuthService,
     private alertify: AlertifyService,
     private route: ActivatedRoute,
     private router: Router
