@@ -67,7 +67,7 @@ export class PolizasCreateComponent implements OnInit {
         },
         (error) => {
           this.alertService.error(
-            'No se pudo completar la creación de la poliza'
+            'No se pudo completar la creación de la poliza.' + error.error
           );
           console.log(error);
         },

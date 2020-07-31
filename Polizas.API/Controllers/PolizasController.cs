@@ -81,6 +81,11 @@ namespace Polizas.API.Controllers
         [HttpPost]
         public async Task<IActionResult> PostPoliza(Poliza poliza)
         {
+            if((int) poliza.TipoRiesgo == 3 && poliza.Cobertura > 50)
+            {
+                return BadRequest("Un tipo de riesgo alto no puede tener una cobertura mayor al 50%");
+            }
+
             _repo.Add(poliza);
             await _repo.SaveAll();
 
