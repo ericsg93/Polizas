@@ -16,6 +16,13 @@ namespace Polizas.API.Repositories
             _dataContext = dataContext;
         }
 
+        public async Task<User> GetUser(int id)
+        {
+            return await _dataContext.Users.FirstOrDefaultAsync(u => u.Id == id);
+
+
+        }
+
         public async Task<IEnumerable<User>> GetUsers()
         {
             return await _dataContext.Users.ToListAsync();

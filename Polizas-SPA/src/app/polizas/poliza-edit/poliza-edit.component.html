@@ -1,1 +1,53 @@
-<p>poliza-edit works!</p>
+<div class="container">
+  <form #editForm="ngForm" (ngSubmit)="updatePoliza()">
+    <h2 class="text-center text-primary mt-2 mb-2">Edición de Poliza</h2>
+    <hr />
+
+    <!-- Nombre -->
+    <div class="form-group">
+      <label>Nombre de Poliza: </label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="poliza.nombre"
+        name="nombre"
+      />
+    </div>
+
+    <!-- Descripcion -->
+    <div class="form-group">
+      <label>Descripción de Poliza: </label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="poliza.descripcion"
+        name="descripcion"
+      />
+    </div>
+
+    <!-- Descripcion -->
+    <div class="form-group">
+      <label>Periodo de meses de poliza: </label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="poliza.periodoMeses"
+        name="periodoMeses"
+      />
+    </div>
+
+    <div class="form-group text-center">
+      <button
+        class="btn btn-success"
+        [disabled]="!editForm.valid"
+        type="submit"
+      >
+        Actualizar
+      </button>
+    </div>
+  </form>
+
+  <!-- <p>Form Value: {{ registerForm.value | json }}</p>
+          <p>Form status: {{ registerForm.status | json }}</p>
+           -->
+</div>

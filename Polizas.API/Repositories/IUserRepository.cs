@@ -9,6 +9,7 @@ namespace Polizas.API.Repositories
     public interface IUserRepository {
 
         Task<IEnumerable<User>> GetUsers();
+        Task<User> GetUser(int id);
 
     }
 }

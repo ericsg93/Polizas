@@ -27,6 +27,7 @@ import { HomeComponent } from './home/home.component';
 import { PolizasListComponent } from './polizas/polizas-list/polizas-list.component';
 import { PolizasCreateComponent } from './polizas/polizas-create/polizas-create.component';
 import { PolizaEditComponent } from './polizas/poliza-edit/poliza-edit.component';
+import { PolizaComponent } from './polizas/poliza/poliza.component';
 
 export function tokenGetter(): string {
   return localStorage.getItem('token');
@@ -47,6 +48,7 @@ export class CustomHammerConfig extends HammerGestureConfig {
     PolizasListComponent,
     PolizasCreateComponent,
     PolizaEditComponent,
+    PolizaComponent,
   ],
   imports: [
     BrowserAnimationsModule,

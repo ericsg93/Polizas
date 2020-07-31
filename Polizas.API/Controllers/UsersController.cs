@@ -36,5 +36,20 @@ namespace Polizas.API.Controllers
             return Ok(usertoReturn);
         }      
         
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetUser(int id)
+        {
+            var user = await _repo.GetUser(id);
+
+            if(user == null)
+            {
+                NotFound();
+            }
+
+            var usertoReturn = _mapper.Map<UsertoReturn>(user);
+
+            return Ok(usertoReturn);
+        }
+
     }
 }

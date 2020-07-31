@@ -1,0 +1,61 @@
+<div class="container">
+  <h2 class="text-center text-primary mt-2 mb-2">Detalles de Poliza</h2>
+  <hr />
+
+  <!-- Nombre -->
+  <div>
+    <label>Nombre de Poliza: </label>
+    <label> {{ poliza.nombre }} </label>
+  </div>
+  <div>
+    <label>Descripcion: </label>
+    <label> {{ poliza.descripcion }} </label>
+  </div>
+  <div>
+    <label>Cobertura: </label>
+    <label> {{ poliza.cobertura }} </label>
+  </div>
+  <div>
+    <label>Vigencia: </label>
+    <label> {{ poliza.vigencia }} </label>
+  </div>
+  <div>
+    <label>Periodo de meses: </label>
+    <label> {{ poliza.periodoMeses }} </label>
+  </div>
+  <div>
+    <label>Precio Total: </label>
+    <label> {{ poliza.precio }} </label>
+  </div>
+  <div>
+    <label>Tipo de Riesgo: </label>
+    <label> {{ poliza.tipoRiesgo }} </label>
+  </div>
+  <div>
+    <label>Status de Poliza: </label>
+    <label> {{ poliza.status ? "Activo" : "Inactivo" }} </label>
+  </div>
+
+  <h2 class="text-center text-primary mt-2 mb-2">Detalles de Cliente</h2>
+  <hr />
+  <div>
+    <label> Cedula: </label>
+    <label> {{ user?.cedula }} </label>
+  </div>
+  <div>
+    <label> Nombre: </label>
+    <label> {{ user?.nombre }} </label>
+  </div>
+  <div>
+    <label> Apellido: </label>
+    <label> {{ user?.apellido }} </label>
+  </div>
+  <div>
+    <label> Fecha Nacimiento: </label>
+    <label> {{ user?.fecha_Nacimiento }} </label>
+  </div>
+
+  <!-- <p>Form Value: {{ registerForm.value | json }}</p>
+            <p>Form status: {{ registerForm.status | json }}</p>
+             -->
+</div>

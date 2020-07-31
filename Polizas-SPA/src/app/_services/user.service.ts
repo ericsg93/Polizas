@@ -12,7 +12,11 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  getPolizas(): Observable<User[]> {
+  getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.baseUrl + 'users');
+  }
+
+  getUser(id: number): Observable<User> {
+    return this.http.get<User>(this.baseUrl + 'users/' + id);
   }
 }

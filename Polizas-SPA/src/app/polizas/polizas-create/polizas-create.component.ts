@@ -80,7 +80,7 @@ export class PolizasCreateComponent implements OnInit {
   }
 
   loadUsers() {
-    this.userService.getPolizas().subscribe((res) => {
+    this.userService.getUsers().subscribe((res) => {
       this.users = res;
     });
   }

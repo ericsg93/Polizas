@@ -1,19 +1,23 @@
-import { Poliza } from './../../_models/poliza';
+import { UserService } from './../../_services/user.service';
 import { Component, OnInit } from '@angular/core';
+import { Poliza } from 'src/app/_models/poliza';
 import { PolizaService } from './../../_services/poliza.service';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { User } from 'src/app/_models/user';
 
 @Component({
-  selector: 'app-poliza-edit',
-  templateUrl: './poliza-edit.component.html',
-  styleUrls: ['./poliza-edit.component.css'],
+  selector: 'app-poliza',
+  templateUrl: './poliza.component.html',
+  styleUrls: ['./poliza.component.css'],
 })
-export class PolizaEditComponent implements OnInit {
+export class PolizaComponent implements OnInit {
   poliza: Poliza;
+  user: User;
 
   constructor(
     private polizaService: PolizaService,
+    private userService: UserService,
     private alertify: AlertifyService,
     private route: ActivatedRoute,
     private router: Router
@@ -23,20 +27,13 @@ export class PolizaEditComponent implements OnInit {
     this.route.data.subscribe((res) => {
       this.poliza = res['poliza'];
       console.log(this.poliza);
+      this.loadUser();
     });
   }
 
-  updatePoliza() {
-    this.polizaService.updatePoliza(this.poliza.id, this.poliza).subscribe(
-      (res) => {
-        this.alertify.success('Poliza actualizada');
-      },
-      (error) => {
-        this.alertify.error('Poliza no pudo ser actualizada');
-      },
-      () => {
-        this.router.navigate(['/polizas']);
-      }
-    );
+  loadUser() {
+    this.userService.getUser(this.poliza.id).subscribe((res) => {
+      this.user = res;
+    });
   }
 }
